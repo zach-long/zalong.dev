@@ -1,21 +1,20 @@
 $site-background-color: #000000;
-$site-text-color: cyan;
+$site-text-color: #00ff00;
 
-$site-selection-background: white;
-$site-selection-color: purple;
+$site-selection-background: #ffffff;
+$site-selection-color: #ff00ff; // inverse of site-text-color
 
 $section-space: 5rem;
 
 $skillbar-height: 2em;
 $skillbar-edge-margin: .5em;
-$skillbar-fill-color: darkslategray;
+$skillbar-fill-color: #2f4f4f;
 $skillbar-border-color: yellow;
 $skillbar-min-level: 1;
 $skillbar-max-level: 5;
 
-$project-border-color: yellow;
+$project-border-color: #808080;
 $project-background-color-hover: #1f1f1f;
-$project-stack-color: darkslategray;
+$project-stack-color: #556b2f;
 
-// $footer-border-color: yellow;
-$footer-border-color: purple;
+$footer-border-color: #ffffff;

@@ -96,12 +96,30 @@ main {
     padding: .5em;
     width: calc(100% - 1em); // full width minus padding to remove overflow
 
+    @include tablet {
+        flex-wrap: wrap;
+        justify-content: center !important;
+    }
+
     .project-logo-container {
         width: 10rem;
         // height: 6.25rem;
+        flex-shrink: 0;
 
         @include mobile {
             display: none;
+        }
+    }
+
+    .project-short-description {
+        width: 100%;
+
+        h2 {
+            word-wrap: break-word;
+        }
+        
+        @include tablet {
+            padding: 0 !important;
         }
     }
 

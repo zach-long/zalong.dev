@@ -181,7 +181,7 @@ class ProjectForm extends Component<FormProps, FormState, any> {
                 <form id="project-form" onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label>Title</label>
-                        <input id="title" className="form-control" form="project-form" name="title" type="text" placeholder="Title" onChange={this.handleChange} value={this.state.title} required/>
+                        <input id="title" className="form-control" form="project-form" name="title" type="text" placeholder="Title" onChange={this.handleChange} value={this.state.title} />
                     </div>
                     <div className="form-group">
                         <label>Description</label>
@@ -193,7 +193,7 @@ class ProjectForm extends Component<FormProps, FormState, any> {
                     </div>
                     <div className="form-group">
                         <label>Image</label>
-                        <input id="image" className="form-control-file" form="project-form" name="image" type="file" onChange={this.handleImageChange} ref={this.fileInput} required/>
+                        <input id="image" className="form-control-file" form="project-form" name="image" type="file" onChange={this.handleImageChange} ref={this.fileInput} />
                     </div>
                     <div className="form-group">
                         <label>URL</label>

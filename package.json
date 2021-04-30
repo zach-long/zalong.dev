@@ -1,6 +1,6 @@
 {
     "name": "zaldev",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "---\r An Express & MongoDB backend, with a React frontend.",
     "private": true,
     "main": "app/index.js",
