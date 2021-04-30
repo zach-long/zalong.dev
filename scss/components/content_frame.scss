@@ -1,0 +1,98 @@
+$topbar-height: 150px;
+$sidebar-width: 150px;
+$frame-border: 1px solid purple;
+
+#frame {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1;
+}
+
+#sidebar {
+    position: absolute;
+    width: $sidebar-width;
+    height: 100%;
+    border-right: $frame-border;
+    z-index: 2;
+}
+
+#intersect-box {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: $topbar-height;
+    border-bottom: $frame-border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#topbar {
+    position: absolute;
+    // left: $sidebar-width;
+    width: calc(100vw - #{$sidebar-width});
+    height: $topbar-height;
+    border-bottom: $frame-border;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: $sidebar-width + ($sidebar-width / 3);
+    background-color: black;
+}
+
+.content {
+    padding-top: $topbar-height + ($topbar-height / 3);
+    padding-right: ($sidebar-width / 2);
+    padding-left: $sidebar-width + ($sidebar-width / 3);
+}
+
+// make sure max-width matches variable used for the media query mixins
+// this is separate since this file is intended to be usable as a standalone file with no requirements
+@media (max-width: 768px) {
+    #sidebar {
+        display: none;
+    }
+
+    #intersect-box {
+        display: none;
+    }
+    
+    #topbar {
+        position: absolute;
+        left: unset;
+        width: 100vw;
+        height: ($topbar-height / 1.5);
+        border-bottom: $frame-border;
+
+        padding-left: ($sidebar-width / 3);
+    }
+
+    .content {
+        padding-top: ($topbar-height / 1.5) + (($topbar-height / 1.5) / 3);
+        padding-right: ($sidebar-width / 3);
+        padding-left: ($sidebar-width / 3);
+    }
+}
+
+@media (max-width: 375px) {
+    #topbar {
+        position: absolute;
+        left: unset;
+        width: 100vw;
+        height: ($topbar-height / 2);
+        border-bottom: $frame-border;
+
+        padding-left: ($sidebar-width / 5);
+    }
+
+    .content {
+        padding-top: ($topbar-height / 2) + (($topbar-height / 2) / 5);
+        padding-right: ($sidebar-width / 5);
+        padding-left: ($sidebar-width / 5);
+    }
+}

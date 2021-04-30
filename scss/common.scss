@@ -1,0 +1,107 @@
+@import 'components/_mixins';
+@import 'components/_variables';
+
+html {
+    scroll-behavior: smooth;
+}
+
+.center {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+$flex-direction-list: (row, row-reverse, column, column-reverse);
+
+@each $value in $flex-direction-list {
+    .#{$value} {
+        display: flex;
+        flex-direction: $value;
+    }
+}
+
+$justify-content-list: (center, start, end, flex-start, flex-end, left, right, normal, space-between, space-around, space-evenly, stretch);
+
+@each $value in $justify-content-list {
+    .justify-content-#{$value} {
+        justify-content: $value;
+    }
+}
+
+$align-items-list: (normal, stretch, center, start, end, flex-start, flex-end, baseline);
+
+@each $value in $align-items-list {
+    .align-items-#{$value} {
+        align-items: $value;
+    }
+}
+
+$margin-min: 0;
+$margin-max: 5;
+$margin-list: (mt, mr, mb, ml, m);
+
+@each $value in $margin-list {
+    @for $i from $margin-min through $margin-max {
+        .#{$value}#{$i} {
+            @if $value == mt {
+                margin-top: #{$i}em;
+            } @else if $value == mr {
+                margin-right: #{$i}em;
+            } @else if $value == mb {
+                margin-bottom: #{$i}em;
+            } @else if $value == ml {
+                margin-left: #{$i}em;
+            } @else if $value == m {
+                margin: #{$i}em;
+            } @else {
+                @error "Unknown margin value.";
+            }
+        }
+    }
+}
+
+$padding-min: 0;
+$padding-max: 5;
+$padding-list: (pt, pr, pb, pl, p);
+
+@each $value in $padding-list {
+    @for $i from $padding-min through $padding-max {
+        .#{$value}#{$i} {
+            @if $value == pt {
+                padding-top: #{$i}em;
+            } @else if $value == pr {
+                padding-right: #{$i}em;
+            } @else if $value == pb {
+                padding-bottom: #{$i}em;
+            } @else if $value == pl {
+                padding-left: #{$i}em;
+            } @else if $value == p {
+                padding: #{$i}em;
+            } @else {
+                @error "Unknown padding value.";
+            }
+        }
+    }
+}
+
+@for $i from 0 through 100 {
+    @if $i == 0 or $i % 5 == 0 {
+        .w#{$i} {
+            width: #{$i}#{'%'};
+        }
+
+        .minw#{$i} {
+            min-width: #{$i}#{'%'};
+        }
+
+        .maxw#{$i} {
+            max-width: #{$i}#{'%'};
+        }
+    }
+}

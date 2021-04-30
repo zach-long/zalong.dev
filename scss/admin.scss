@@ -1,0 +1,4 @@
+// override bootstrap toast which is opaque
+.toast {
+    opacity: 1 !important;
+}

@@ -1,0 +1,41 @@
+@import '_variables';
+
+@mixin flex-container($flex-direction, $justify-content, $align-items) {
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+// MEDIA QUERIES
+
+// set breakpoints
+$mobileWidth: 375px;
+$tabletWidth: 768px;
+$laptopWidth: 1024px;
+$desktopWidth: 1440px;
+
+// define mixins
+@mixin mobile {
+  @media (max-width: #{$mobileWidth}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tabletWidth}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: #{$laptopWidth}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$desktopWidth}) {
+    @content;
+  }
+}

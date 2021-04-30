@@ -1,0 +1,119 @@
+@import 'components/_mixins';
+@import 'components/_variables';
+@import 'components/content_frame';
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+::-moz-selection {
+    background: $site-selection-background;
+    color: $site-selection-color;
+}
+  
+::selection {
+    background: $site-selection-background;
+    color: $site-selection-color;
+}
+
+h1, h2 {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: normal;
+}
+
+p, a, div, ul, li, h3, h4, h5, h6 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: normal;
+}
+
+body {
+    background-color:$site-background-color;
+    color: $site-text-color;
+}
+
+section {
+    padding-bottom: $section-space;
+}
+
+// stick footer to bottom
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .content {
+        flex: 1;
+    }
+}
+
+.bio-content {
+    white-space: pre-line;
+}
+
+.skill-group {
+    position: relative;
+    height: $skillbar-height;
+    border: 1px solid $skillbar-border-color;
+
+    .skill-fill {
+        position: absolute;
+        width: 100%;// variable
+        height: 100%;
+        background-color: $skillbar-fill-color;
+        z-index: -1;
+    }
+
+    @for $i from $skillbar-min-level through $skillbar-max-level {
+        .skill-fill.fill-#{$i} {
+            width: ($i * 20)#{'%'};
+        }
+    }
+
+    .skill-name {
+        margin-left: $skillbar-edge-margin;
+    }
+
+    .skill-score {
+        margin-right: $skillbar-edge-margin;
+    }
+}
+
+.project-link {
+    color: $site-text-color;
+    text-decoration: none;
+
+    &:visited {
+        color: $site-text-color;
+        text-decoration: none;
+    }
+}
+
+.project-preview {
+    border: 1px solid $project-border-color;
+    margin-bottom: 2em;
+    padding: .5em;
+    width: calc(100% - 1em); // full width minus padding to remove overflow
+
+    .project-logo-container {
+        width: 10rem;
+        // height: 6.25rem;
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &:hover {
+        background-color: $project-background-color-hover;
+    }
+}
+
+.project-stack {
+    border-left: 2px solid $project-stack-color;
+}
+
+#footer {
+    border-top: 1px solid $footer-border-color;
+}
